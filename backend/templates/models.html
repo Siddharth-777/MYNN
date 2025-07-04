@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MYNN - About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #111;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            padding: 20px 0;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #111;
+            margin: 0 30px;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+        .navbar a:hover {
+            opacity: 1;
+            background: #f5f5f5;
+        }
+        .navbar a.active {
+            background: #111;
+            color: #fff;
+            opacity: 1;
+        }
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #111;
+            letter-spacing: 0.04em;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #111;
+            letter-spacing: 0.04em;
+        }
+        .section p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .model-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #eee;
+        }
+        .model-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #111;
+        }
+        .model-card p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 1rem;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 600px) {
+            .navbar a {
+                margin: 0 15px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .main-content {
+                padding: 20px 15px;
+            }
+            .section h1 {
+                font-size: 2rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .model-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/models" class="active">About</a>
+        <a href="/about">Blog</a>
+        <a href="/creator">Creator</a>
+    </div>
+    
+    <div class="main-content">
+        <div class="section">
+            <h1>About MYNN</h1>
+            <p>MYNN (Multi-Modal Neural Network) is an advanced AI platform designed to help you understand, analyze, and interact with research papers. Inspired by the Star Wars universe, MYNN brings together multiple specialized models to provide deep insights, creative connections, and logical reasoning for your academic documents.</p>
+        </div>
+
+        <div class="section">
+            <h2>What is MYNN?</h2>
+            <p>MYNN combines multiple specialized AI models to provide comprehensive analysis of research papers. It's designed to help researchers, students, and academics understand complex papers quickly and thoroughly. Named after the neural networks in Star Wars, MYNN brings the same level of sophistication to research analysis.</p>
+            <p>Our platform understands your uploaded document and uses it as context for every answer, ensuring relevance and accuracy in all responses.</p>
+        </div>
+
+        <div class="section">
+            <h2>Our Models</h2>
+            <div class="model-grid">
+                <div class="model-card">
+                    <h3>EmoNet</h3>
+                    <p>Analyzes the emotional tone and sentiment of research content, helping understand the authors' perspective and the overall mood of the paper.</p>
+                </div>
+                <div class="model-card">
+                    <h3>LogicNet</h3>
+                    <p>Provides step-by-step logical reasoning and answers complex analytical questions with clear explanations and evidence-based responses.</p>
+                </div>
+                <div class="model-card">
+                    <h3>MemoryNet</h3>
+                    <p>Retrieves relevant information from your uploaded document to provide contextually accurate answers based on the specific content.</p>
+                </div>
+                <div class="model-card">
+                    <h3>CreativeNet</h3>
+                    <p>Generates creative analogies, connections, and insights to help you see research in new ways and make unexpected discoveries.</p>
+                </div>
+                <div class="model-card">
+                    <h3>Cortex Fusion</h3>
+                    <p>Intelligently combines outputs from all models to generate comprehensive, well-structured answers that leverage the strengths of each model.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technology</h2>
+            <ul class="features-list">
+                <li><strong>Neural Networks:</strong> Advanced deep learning models trained on academic literature and research papers</li>
+                <li><strong>Natural Language Processing:</strong> State-of-the-art NLP techniques for understanding and generating human-like responses</li>
+                <li><strong>PDF Processing:</strong> Sophisticated document parsing to extract text, figures, and structure from research papers</li>
+                <li><strong>Model Fusion:</strong> Intelligent combination of multiple model outputs for comprehensive and balanced answers</li>
+                <li><strong>Context Awareness:</strong> Understanding of document structure and content relationships</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Star Wars Connection</h2>
+            <p>Like the Force, MYNN connects different aspects of knowledge to create something greater than the sum of its parts. Inspired by the helpful droids of Star Wars, MYNN serves as your intelligent research companion, combining knowledge, patience, and understanding—core values of both Jedi philosophy and scientific inquiry.</p>
+            <p>Just as Star Wars spans a vast galaxy, MYNN helps you explore the vast universe of academic research, making complex concepts accessible and engaging.</p>
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <p><strong>1. Document Upload:</strong> Upload your research paper as a PDF. Our system parses and understands the content structure.</p>
+            <p><strong>2. Question Processing:</strong> Your question is analyzed and routed to the most appropriate models for comprehensive analysis.</p>
+            <p><strong>3. Model Analysis:</strong> Each model processes your question using the document context and generates specialized insights.</p>
+            <p><strong>4. Fusion & Response:</strong> The Cortex Fusion model combines all insights into a coherent, comprehensive answer for you.</p>
+        </div>
+
+        <div class="section">
+            <h2>Use Cases</h2>
+            <ul class="features-list">
+                <li><strong>Research Review:</strong> Quickly understand the key findings and methodology of research papers in your field</li>
+                <li><strong>Literature Survey:</strong> Compare and contrast multiple papers to identify trends and gaps in research</li>
+                <li><strong>Teaching Aid:</strong> Help students understand complex research concepts through clear explanations and analogies</li>
+                <li><strong>Grant Writing:</strong> Understand related research to strengthen your grant proposals and research plans</li>
+                <li><strong>Academic Writing:</strong> Get insights to improve your own research papers and academic writing</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        May the Force be with you.<br>
+        <span style="font-size:0.9em;">This site is not affiliated with or endorsed by Lucasfilm.</span>
+    </div>
+</body>
+</html> 

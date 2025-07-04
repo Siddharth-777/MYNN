@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/yoda.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYNN: Star Wars Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Star Jedi';
+            src: url('data:font/woff2;base64,') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <style>
+  body { visibility: hidden; }
+</style>
+
+</head>
+
+<body>
+    <!-- Loader -->
+<div id="preloader">
+  <div class="loader-spinner"></div>
+  <p class="loader-text">Loading the Force...</p>
+</div>
+
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="nav-img">
+                    <span class="logo-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32" class="logo-svg">
+                    <path d="M 15.498047 4 C 15.299047 4 15.138859 4.1545625 15.130859 4.3515625 L 14.601562 18.056641 L 13.203125 17.107422 C 13.059125 17.010422 12.870141 17.022578 12.744141 17.142578 C 12.619141 17.261578 12.592641 17.449609 12.681641 17.599609 L 13.605469 19.150391 L 11.671875 19.550781 C 11.501875 19.584781 11.378906 19.736156 11.378906 19.910156 C 11.378906 20.084156 11.501875 20.236484 11.671875 20.271484 L 13.605469 20.671875 L 12.679688 22.224609 C 12.591688 22.372609 12.618141 22.561641 12.744141 22.681641 C 12.863141 22.794641 13.066125 22.806844 13.203125 22.714844 L 14.451172 21.865234 L 14.337891 24.865234 C 11.720891 24.330234 9.7460938 22.020719 9.7460938 19.261719 C 9.7460938 17.649719 10.418672 16.154734 11.638672 15.052734 C 11.809672 14.898734 11.901625 14.680078 11.890625 14.455078 C 11.879625 14.230078 11.766031 14.023719 11.582031 13.886719 C 9.8970312 12.638719 8.9316406 10.732203 8.9316406 8.6582031 C 8.9316406 7.8512031 9.0828125 7.0587344 9.3828125 6.3027344 C 9.4768125 6.0697344 9.4505469 5.816375 9.3105469 5.609375 C 9.1685469 5.401375 8.9364531 5.2773438 8.6894531 5.2773438 C 8.5374531 5.2773438 8.3906719 5.3240625 8.2636719 5.4140625 C 5.6956719 7.2300625 3.9607813 9.8902813 3.3007812 12.863281 L 5.203125 14.765625 L 3.0332031 14.765625 C 3.0042031 15.221625 2.9877656 15.679578 3.0097656 16.142578 C 3.0377656 16.759578 3.1261406 17.361125 3.2441406 17.953125 L 5.9375 20.646484 L 4.1035156 20.646484 C 5.9995156 24.793484 10.130203 27.766328 14.908203 27.986328 C 15.106203 27.995328 15.302047 28 15.498047 28 C 20.569047 28 24.935531 24.974484 26.894531 20.646484 L 25.058594 20.646484 L 27.763672 17.941406 C 27.914672 17.169406 28 16.374594 28 15.558594 C 28 15.291594 27.968172 15.028672 27.951172 14.763672 L 25.794922 14.763672 L 27.689453 12.869141 C 27.023453 9.8921406 25.280469 7.2141094 22.730469 5.4121094 C 22.603469 5.3221094 22.457641 5.2753906 22.306641 5.2753906 C 22.059641 5.2753906 21.827547 5.3994219 21.685547 5.6074219 C 21.545547 5.8134219 21.518328 6.0667813 21.611328 6.3007812 C 21.912328 7.0567813 22.064453 7.8502031 22.064453 8.6582031 C 22.064453 10.732203 21.099063 12.637719 19.414062 13.886719 C 19.229063 14.023719 19.116469 14.230078 19.105469 14.455078 C 19.094469 14.681078 19.186422 14.899687 19.357422 15.054688 C 20.870422 16.421687 21.533859 18.433547 21.130859 20.435547 C 20.682859 22.657547 18.886203 24.437141 16.658203 24.869141 L 16.544922 21.867188 L 17.792969 22.716797 C 17.929969 22.811797 18.133906 22.794687 18.253906 22.679688 C 18.378906 22.560688 18.402453 22.370656 18.314453 22.222656 L 17.390625 20.673828 L 19.324219 20.271484 C 19.494219 20.237484 19.617188 20.086109 19.617188 19.912109 C 19.617188 19.739109 19.493219 19.588734 19.324219 19.552734 L 17.390625 19.150391 L 18.316406 17.599609 C 18.404406 17.451609 18.378906 17.263531 18.253906 17.144531 C 18.129906 17.027531 17.932969 17.011422 17.792969 17.107422 L 16.396484 18.056641 L 15.865234 4.3535156 C 15.858234 4.1555156 15.696047 3.999 15.498047 4 z"></path>
+                    </svg>
+                    MYNN</span>
+                    </span>
+                    <span class="logo-subtitle"><span class="starwars-font-1">STAR WARS</span> EDITION</span>
+                </div>
+                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    ☰
+                    </button>
+                <div class="nav-links" id="nav-links">
+                    <a href="#home" class="nav-link">HOME</a>
+                    <a href="#fleet" class="nav-link">FLEET</a>
+                    <a href="#modules" class="nav-link">MODULES</a>
+                    <a href="#mission" class="nav-link">MISSION</a>
+                </div>
+                <a href="http://localhost:8080/analyze" class="nav-cta">JOIN REBELLION</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <canvas id="hero-canvas" data-ship-type="nova-cruiser"></canvas>
+          
+
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title ">
+                        <span class="title-main">MYNN</span>
+                        <span class="title-sub"><span class="starwars-font"> STAR WARS </span>EDITION</span>
+                    </h1>
+                    <p class="hero-tagline typewriter">"The Force Awakens in Your Data"</p>
+                    <p class="hero-description">
+                        Join the Rebellion against ignorance. Our bio-intelligent AI fleet analyzes your documents 
+                        with the power of the Force, delivering insights that would make even Master Yoda proud.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">
+                            <span>AWAKEN THE FORCE</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <a class="btn btn-secondary" href="#fleet">VIEW FLEET</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">AI MODULES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">POSSIBILITIES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">FORCE POWER</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Section -->
+        <section id="fleet" class="fleet">
+            <div class="container">
+                <h2 class="section-title">THE REBEL FLEET</h2>
+                <p class="section-subtitle">Advanced starships powered by bio-intelligent AI</p>
+                
+                <div class="fleet-grid">
+                    <div class="ship-card" data-ship="x-wing">
+                        <div class="ship-3d">
+                            <canvas class="ship-canvas" data-ship-type="x-wing"></canvas>
+                        </div>
+                        <div class="ship-info">
+                            <h3 class="ship-name">X-WING FIGHTER</h3>
+                            <p class="ship-description">Fast reconnaissance and data analysis</p>
+                            <div class="ship-stats">
+                                <span class="stat">Speed: <span style="color: #ff6b35;">★★★★★</span></span>
+                                <span class="stat">Power: <span style="color: #ff6b35;">★★★☆☆</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ship-card" data-ship="millennium-falcon">
+                        <div class="ship-3d">
+                            <canvas class="ship-canvas" data-ship-type="millennium-falcon"></canvas>
+                        </div>
+                        <div class="ship-info">
+                            <h3 class="ship-name">MILLENNIUM FALCON</h3>
+                            <p class="ship-description">Heavy-duty document processing</p>
+                            <div class="ship-stats">
+                                <span class="stat">Speed: <span style="color: #ff6b35;">★★★☆☆</span></span>
+                                <span class="stat">Power: <span style="color: #ff6b35;">★★★★★</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ship-card" data-ship="star-destroyer">
+                        <div class="ship-3d">
+                            <canvas class="ship-canvas" data-ship-type="star-destroyer"></canvas>
+                        </div>
+                        <div class="ship-info">
+                            <h3 class="ship-name">STAR DESTROYER</h3>
+                            <p class="ship-description">Massive data analysis capabilities</p>
+                            <div class="ship-stats">
+                                <span class="stat">Speed: <span style="color: #ff6b35;">★★☆☆☆</span></span>
+                                <span class="stat">Power: <span style="color: #ff6b35;">★★★★★</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="modules">
+            <div class="container icons8-star-wars">
+                <p class="section-title"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+                <g fill="#ed602d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M10.30078,12c-2.41016,0 -4.30078,1.93359 -4.30078,4.40234c0,0.91016 0.26172,1.47266 0.51563,1.90625l0.07813,0.16016l0.10547,0.12891c0.05078,0.07031 0.15234,0.21484 0.28516,0.40234h-6.98437v7.125l0.50391,1.50781l3,9l0.45313,1.36719h4.56641l0.46875,-1.34766l0.00781,-0.02734l0.00781,0.02734l0.46875,1.34766h9.94531l0.46875,-1.33984l0.23047,-0.66016h0.95703l0.23438,0.66016l0.46875,1.33984h11.21875v-0.54687c0.38281,0.25781 0.99609,0.54688 1.80078,0.54688h8.29688c2.51172,0 4.40234,-1.89062 4.40234,-4.40234c0,-0.91016 -0.26172,-1.47266 -0.51562,-1.90625l-0.09375,-0.1875l-0.12891,-0.15625l-0.28125,-0.34766h2.51953v-12h-3.73437c0.34375,-0.66406 0.53516,-1.41406 0.53516,-2.19922c0,-2.64844 -2.15234,-4.80078 -4.80078,-4.80078h-8v3.11719l-0.60937,-1.76953l-0.46484,-1.34766zM10.30078,14h13.69922v2h-4v7h-3v-7h-5.40234c-0.39844,0 -0.69531,0.30078 -0.69531,0.69922c0,0.10156 0.09766,0.19922 0.09766,0.30078l1.90234,2.59766c0.09766,0.20313 0.29688,0.40234 0.29688,1c0,1.40234 -1.09766,2.40234 -2.39844,2.40234h-8.80078v-2h7.60156c0.39844,0 0.69922,-0.30078 0.59766,-0.69922c0,-0.10156 -0.10156,-0.19922 -0.10156,-0.30078c0,0 -1.49609,-2.19922 -1.79687,-2.59766c-0.10156,-0.20312 -0.30078,-0.40234 -0.30078,-1c0,-1.40234 1,-2.40234 2.30078,-2.40234zM26.30078,14h4.19922l3.09766,9h-2.5l-0.69531,-2h-3.80469l-0.69531,2h-2.5zM35,14h6c1.5,0 2.80078,1.19922 2.80078,2.80078c0,1.30078 -0.90234,2.39844 -2.10156,2.69922c0,0 0.60156,0.5 1.10156,1.09766c0.19922,0.20313 0.39844,0.40234 0.79688,0.40234h3.40234v2h-5.19922c-0.39844,0 -0.69922,-0.19922 -0.80078,-0.30078c-0.77734,-0.69922 -2.33984,-2.18359 -3,-2.80859c0,0.98438 0,3.10938 0,3.10938h-3zM28.40234,15.40234l-1.20312,3.59766h2.39844zM38,16v2h2.30078c0.60156,0 1.10156,-0.39844 1.10156,-1c0,-0.60156 -0.5,-1 -1.10156,-1zM14.20703,18h0.79297v1.35156c-0.08984,-0.25781 -0.20312,-0.46875 -0.3125,-0.66016l-0.07812,-0.14453l-0.09375,-0.125zM22,18h0.91016l-0.91016,2.82422zM15,21.9375v3.0625h-4.19922c1.99609,0 3.64453,-1.26953 4.19922,-3.0625zM28.01953,23h0.96094l0.23438,0.66016l0.46875,1.33984h-2.36719l0.46875,-1.33984zM40,24.44922c0.38281,0.25781 0.99219,0.55078 1.80078,0.55078h0.5c-1.74219,0 -3.25,1.03906 -3.96094,2.54688c-0.8125,-1.51562 -2.40625,-2.54687 -4.24219,-2.54687h5.90234zM24.14063,25h1.85938v5.57422l-1.40234,-4.20703zM2.39844,27h2.5l1.30078,3.90234l1.40234,-3.90234h2.80078l1.29688,3.90234l1.30078,-3.90234h2.59766l-3,9h-1.69531l-1.90234,-5.5l-1.89844,5.5h-1.70312zM18.5,27h4.19922l3,9h-2.5l-0.69922,-2h-3.80078l-0.69922,2h-2.40234zM28,27h6.09766c1.5,0 2.80469,1.19922 2.80469,2.80078c0,1.30078 -0.90234,2.39844 -2.10156,2.69922c0,0 0.5,0.5 1,1.09766c0.19922,0.20313 0.39844,0.40234 0.79688,0.40234h5.30469c0.29688,0 0.59766,-0.30078 0.59766,-0.69922c0,-0.10156 -0.09766,-0.19922 -0.09766,-0.30078c0,0 -1.90234,-2.19922 -2.20312,-2.5c-0.10156,-0.19922 -0.29687,-0.39844 -0.29687,-1c0,-1.39844 1.09766,-2.5 2.39844,-2.5h4.69922v2h-3.30078c-0.30078,0 -0.60156,0.40234 -0.60156,0.80078c0,0.10156 0.10156,0.19922 0.10156,0.29688l2,2.5c0.10156,0.20313 0.30078,0.40234 0.30078,1c0,1.5 -1.10156,2.40234 -2.40234,2.40234h-8.29687c-0.39844,0 -0.69922,-0.19922 -0.80078,-0.30078c-0.77734,-0.69922 -2.34375,-2.19141 -3,-2.8125v3.11328h-3zM20.59766,28.40234l-1.19531,3.59766h2.39844zM31,29v2h2.30078c0.60156,0 1.10156,-0.39844 1.10156,-1c0,-0.60156 -0.5,-1 -1.10156,-1zM38.53125,31.64063l0.03125,0.05859l0.22266,0.21484c0.01953,0.01953 0.04688,0.04688 0.07813,0.08594h-0.49609c0.05859,-0.11719 0.11719,-0.23828 0.16406,-0.35937z"></path></g></g>
+                </svg></p>
+                <h2 class="section-title">BIO-INTELLIGENT MODULES</h2>
+                <p class="section-subtitle">The Force flows through these specialized AI systems</p>
+                
+                <div class="modules-grid">
+                    <div class="module-card" data-module="memory">
+                        <div class="module-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+                        <path fill="#9fa8da" d="M9 39H12V41H9zM11 15H37V22H11z"></path><path fill="#e8eaf6" d="M40 37L39 39 36 39 36 14 40 14z"></path><path fill="#c5cae9" d="M36 24H40V34H36zM34 15v-4c0-5.5-4.5-10-10-10S14 5.5 14 11v4H34z"></path><path fill="#3f51b5" d="M22 7H26V14H22z"></path><path fill="#000001" d="M24 8A1 1 0 1 0 24 10A1 1 0 1 0 24 8Z"></path><path fill="#ffff8d" d="M24.5 12A0.5 0.5 0 1 0 24.5 13A0.5 0.5 0 1 0 24.5 12Z"></path><path fill="#7986cb" d="M28 11A1 1 0 1 0 28 13A1 1 0 1 0 28 11Z"></path><path fill="#3f51b5" d="M31.119 4C29.302 2.152 26.78 1 24 1s-5.302 1.152-7.119 3H31.119zM34 11c0-.337-.018-.671-.051-1H30v4h4V11zM21.06 14v-4H14.11c-.033.329-.051.663-.051 1v3H21.06z"></path><path fill="#e8eaf6" d="M13 14H35V37H13z"></path><path fill="#3f51b5" d="M17 15H31V17H17zM17 18H31V20H17zM22 22H26V31H22zM22 33H26V37H22z"></path><path fill="#90a4ae" d="M30 33H32V36H30zM15 32H17V36H15z"></path><path fill="#cfd8dc" d="M24 23L24 23c.552 0 1 .448 1 1v1c0 .552-.448 1-1 1h0c-.552 0-1-.448-1-1v-1C23 23.448 23.448 23 24 23zM24 27L24 27c.552 0 1 .448 1 1v1c0 .552-.448 1-1 1h0c-.552 0-1-.448-1-1v-1C23 27.448 23.448 27 24 27z"></path><path fill="#000001" d="M24 34A1 1 0 1 0 24 36A1 1 0 1 0 24 34Z"></path><path fill="#9fa8da" d="M31 40L17 40 15 37 33 37z"></path><path fill="#3f51b5" d="M40 16H41V20H40z"></path><path fill="#e8eaf6" d="M8 37L9 39 12 39 12 14 8 14z"></path><path fill="#c5cae9" d="M8 23H12V33H8z"></path><path fill="#3f51b5" d="M7 16H8V20H7z"></path><path fill="#c5cae9" d="M8 40L7 46 8 47 13 47 14 46 14 40z"></path><path fill="#9fa8da" d="M13,45c-0.552,0-1-0.448-1-1v-5c0-0.55,0.45-1,1-1h0c0.55,0,1,0.45,1,1v5C14,44.552,13.552,45,13,45L13,45z"></path><path fill="#8d6e63" d="M13,45h-3c-0.55,0-1-0.45-1-1l0,0c0-0.55,0.45-1,1-1h3c0.55,0,1,0.45,1,1l0,0C14,44.55,13.55,45,13,45z"></path><path fill="#9fa8da" d="M36 39H39V41H36z"></path><path fill="#c5cae9" d="M40 40L41 46 40 47 35 47 34 46 34 40z"></path><path fill="#9fa8da" d="M35,45c0.552,0,1-0.448,1-1v-5c0-0.55-0.45-1-1-1l0,0c-0.55,0-1,0.45-1,1v5C34,44.552,34.448,45,35,45L35,45z"></path><path fill="#8d6e63" d="M35,45h3c0.55,0,1-0.45,1-1l0,0c0-0.55-0.45-1-1-1h-3c-0.55,0-1,0.45-1,1l0,0C34,44.55,34.45,45,35,45z"></path>
+                        </svg>                        
+                        </div>
+                        <h3 class="module-name">MEMORYNET</h3>
+                        <p class="module-description">Long-term memory with FAISS-based retrieval system</p>
+                        <div class="module-force-level">
+                            <span class="force-label">FORCE LEVEL:</span>
+                            <div class="force-bar">
+                                <div class="force-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card" data-module="logic">
+                        
+                        <div class="module-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+                        <path fill="#e0e0e0" d="M37.678,26.602h-2.356c-0.73,0-1.322-0.592-1.322-1.322v-5.957C34,18.592,34.592,18,35.322,18h2.356	C38.408,18,39,18.592,39,19.322v5.957C39,26.01,38.408,26.602,37.678,26.602z"></path><path fill="#e0e0e0" d="M12.678,26.602h-2.356C9.592,26.602,9,26.01,9,25.28v-5.957C9,18.592,9.592,18,10.322,18h2.356	C13.408,18,14,18.592,14,19.322v5.957C14,26.01,13.408,26.602,12.678,26.602z"></path><rect width="28" height="17" x="10" y="18" fill="#e0e0e0"></rect><path fill="#bdbdbd" d="M32.799,37.992l4.771,2.153l3.035-6.727c1.189-2.635,0.017-5.735-2.619-6.924l0,0L32.799,37.992z"></path><path fill="#e0e0e0" d="M38,17H10v0c0-7.18,5.82-13,13-13h2C32.18,4,38,9.82,38,17L38,17z"></path><path fill="#bdbdbd" d="M19.514,26.694c1.253-1.056,2.847-1.637,4.486-1.637s3.232,0.581,4.486,1.638l7.17,6.039	l-4.897,4.744L14,34.543l-1.836-1.661L19.514,26.694z"></path><path fill="#bdbdbd" d="M28.173,6.628c1.41,1.667,2.409,3.692,2.836,5.921c0.245,1.277-0.781,2.45-2.081,2.45l-16.946,0	c-1.094,0-1.98,0.886-1.982,1.98L10,17h28c0-5.6-3.542-10.368-8.507-12.196C28.363,4.388,27.396,5.709,28.173,6.628z"></path><path fill="#f5f5f5" d="M38,18H10v1.387c0,1.566,0.335,3.114,0.984,4.54l0,0c0.403,0.906,1.135,1.6,2.063,1.951	c0.426,0.162,0.87,0.243,1.312,0.242c0.52,0,1.039-0.111,1.526-0.333l5.98-3.79c1.354-0.632,2.918-0.632,4.272,0l5.979,3.79	c0.903,0.41,1.911,0.442,2.838,0.091c0.927-0.352,1.66-1.045,2.068-1.964v0C37.667,22.405,38,20.78,38,19.138V18z"></path><path fill="#bdbdbd" d="M15.191,38.022l-4.771,2.153l-3.035-6.727c-1.189-2.635-0.017-5.735,2.619-6.924l0,0L15.191,38.022z"></path><path fill="#263238" d="M20.802,27.225l-7.661,6.448L24,33.531l10.757,0.061l-7.56-6.368	C25.35,25.668,22.65,25.668,20.802,27.225z"></path><path fill="#263238" d="M13,19c-0.248,0.918-0.055,1.916,0.436,2.966c0.324,0.694,1.029,1.175,1.795,1.172	c2.238-0.008,4.3-1.429,6.271-3.578c0.195-0.213,0.04-0.56-0.249-0.56H13"></path><path fill="#263238" d="M35,19c0.248,0.918,0.055,1.916-0.436,2.966c-0.324,0.694-1.029,1.175-1.795,1.172	c-2.238-0.008-4.3-1.429-6.271-3.578c-0.195-0.213-0.04-0.56,0.249-0.56H35"></path><path fill="#455a64" d="M25,26.17c-0.661-0.136-1.339-0.136-2,0V32h2V26.17z"></path><path fill="#455a64" d="M20.802,27.225L19,28.743V32h2v-4.913C20.936,27.136,20.865,27.172,20.802,27.225z"></path><path fill="#455a64" d="M29,28.743l-1.802-1.518c-0.063-0.053-0.133-0.089-0.198-0.138V32h2V28.743z"></path><path fill="#e0e0e0" d="M37.609,34.831l-11.658-5.399c-0.619-0.287-1.285-0.43-1.951-0.43s-1.331,0.143-1.951,0.43	l-11.658,5.399C9.534,35.314,9,36.25,9,37.268c0,2.635,1.517,4.887,3.676,5.9c3.324,1.558,6.813,0.52,7.589-0.469	c0.441-0.562,1.24-0.693,1.949-0.693H24h1.786c0.709,0,1.508,0.13,1.949,0.693c0.776,0.989,4.265,2.027,7.589,0.469	c2.159-1.012,3.676-3.265,3.676-5.9C39,36.25,38.466,35.314,37.609,34.831z"></path><path fill="#bdbdbd" d="M21.639,36.842L21.639,36.842c-0.785,1.832-2.779,2.895-4.71,2.403	c-1.63-0.415-3.507-0.449-4.616,1.003c-0.289,0.378-0.401,0.826-0.361,1.311c0.074,0.914,0.763,1.682,1.633,1.972	c2.814,0.936,5.559,0.191,6.499-0.641c0.514-0.455,1.444-0.883,2.131-0.883l1.786,0V36h-1.084C22.36,36,21.858,36.331,21.639,36.842	z"></path><path fill="#f5f5f5" d="M32.735,43.698c-0.441-0.562-1.24-0.693-1.949-0.693H29h-0.931c0.855,0.633,2.73,1.168,4.839,0.874	C32.84,43.82,32.782,43.759,32.735,43.698z"></path><path fill="#f5f5f5" d="M32.735,43.698c-0.441-0.562-1.24-0.693-1.949-0.693H29h-0.931c0.855,0.633,2.73,1.168,4.839,0.874	C32.84,43.82,32.782,43.759,32.735,43.698z"></path><path fill="#bdbdbd" d="M26.304,36.842L26.304,36.842c0.785,1.832,2.779,2.895,4.71,2.403	c1.63-0.415,3.507-0.449,4.616,1.003c0.395,0.517,0.459,1.166,0.258,1.858c-0.18,0.618-0.66,1.107-1.263,1.331	c-2.905,1.077-5.796,0.31-6.765-0.548c-0.514-0.455-1.444-0.883-2.131-0.883l-1.786,0V36h1.084	C25.583,36,26.086,36.331,26.304,36.842z"></path><path fill="#263238" d="M23.5,44L23.5,44c-0.276,0-0.5-0.224-0.5-0.5v-6c0-0.276,0.224-0.5,0.5-0.5l0,0	c0.276,0,0.5,0.224,0.5,0.5v6C24,43.776,23.776,44,23.5,44z"></path><path fill="#263238" d="M22.577,43h-0.155C22.189,43,22,42.811,22,42.577v-4.155C22,38.189,22.189,38,22.423,38h0.155	C22.811,38,23,38.189,23,38.423v4.155C23,42.811,22.811,43,22.577,43z"></path><path fill="#263238" d="M21.5,42L21.5,42c-0.276,0-0.5-0.224-0.5-0.5v-2c0-0.276,0.224-0.5,0.5-0.5l0,0	c0.276,0,0.5,0.224,0.5,0.5v2C22,41.776,21.776,42,21.5,42z"></path><path fill="#263238" d="M24.5,44L24.5,44c0.276,0,0.5-0.224,0.5-0.5v-6c0-0.276-0.224-0.5-0.5-0.5l0,0	c-0.276,0-0.5,0.224-0.5,0.5v6C24,43.776,24.224,44,24.5,44z"></path><path fill="#263238" d="M25.423,43h0.155C25.811,43,26,42.811,26,42.577v-4.155C26,38.189,25.811,38,25.577,38h-0.155	C25.189,38,25,38.189,25,38.423v4.155C25,42.811,25.189,43,25.423,43z"></path><path fill="#263238" d="M26.5,42L26.5,42c0.276,0,0.5-0.224,0.5-0.5v-2c0-0.276-0.224-0.5-0.5-0.5l0,0	c-0.276,0-0.5,0.224-0.5,0.5v2C26,41.776,26.224,42,26.5,42z"></path><rect width="28" height="2" x="10" y="16" fill="#263238"></rect><path fill="#263238" d="M14.526,39.038L15,42l1.5-1v-1.849C15.845,39.016,15.169,38.957,14.526,39.038z"></path><path fill="#263238" d="M18.419,39.323c-0.487,0.068-0.99,0.049-1.49-0.079c-0.141-0.036-0.285-0.064-0.429-0.094V41l1.5,1	L18.419,39.323z"></path><ellipse cx="16.5" cy="42" fill="#455a64" rx="1.5" ry="1"></ellipse><path fill="#263238" d="M33.419,39.038L32.946,42l-1.5-1v-1.849C32.101,39.016,32.777,38.957,33.419,39.038z"></path><path fill="#263238" d="M29.526,39.323c0.487,0.068,0.99,0.049,1.49-0.079c0.141-0.036,0.285-0.064,0.429-0.094V41l-1.5,1	L29.526,39.323z"></path><ellipse cx="31.446" cy="42" fill="#455a64" rx="1.5" ry="1"></ellipse>
+                        </svg>
+                        </div>
+                        <h3 class="module-name">LOGICNET</h3>
+                        <p class="module-description">Factual reasoning powered by MiniLM and DistilBERT</p>
+                        <div class="module-force-level">
+                            <span class="force-label">FORCE LEVEL:</span>
+                            <div class="force-bar">
+                                <div class="force-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card" data-module="creative">
+                        <div class="module-icon">
+                        <img src="/images/icon.png" alt="Jedi" class="icon-img">
+                        </div>
+                        <h3 class="module-name">CREATIVENET</h3>
+                        <p class="module-description">Analogy generation using GPT-2 and LSTM networks</p>
+                        <div class="module-force-level">
+                            <span class="force-label">FORCE LEVEL:</span>
+                            <div class="force-bar">
+                                <div class="force-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card" data-module="emotion">
+                        <div class="module-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+                        <linearGradient id="29i7EGsvAp5jqtpE8H-LAa_3EekastinFIX_gr1" x1="8.934" x2="8.934" y1="7.043" y2="45.014" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#889097"></stop><stop offset="1" stop-color="#4c5963"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAa_3EekastinFIX_gr1)" d="M11.07,19.01L9,24l-0.42-0.21L8.1,23.54l-0.03-0.01c-0.17-0.09-0.33-0.19-0.46-0.32	c-0.39-0.36-0.63-0.86-0.65-1.4L6.8,16.74c-0.01-0.21,0.01-0.42,0.05-0.62c0.14-0.83,0.64-1.57,1.38-2.03l0.25-0.15l0.55-0.35	l0.59-0.35L10,13l0.9,5.04L11.07,19.01z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAb_3EekastinFIX_gr2" x1="39.066" x2="39.066" y1="7.043" y2="45.014" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#889097"></stop><stop offset="1" stop-color="#4c5963"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAb_3EekastinFIX_gr2)" d="M41.2,16.74l-0.16,5.07	c-0.02,0.54-0.26,1.04-0.65,1.4c-0.13,0.13-0.29,0.23-0.46,0.32l-0.03,0.01l-0.48,0.25L39,24l-2.07-4.99l0.17-0.97L38,13l0.38,0.24	l0.59,0.35l0.55,0.35l0.25,0.15c0.74,0.46,1.24,1.2,1.38,2.03C41.19,16.32,41.21,16.53,41.2,16.74z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAc_3EekastinFIX_gr3" x1="8.875" x2="8.875" y1="1.826" y2="44.263" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a1aab3"></stop><stop offset="1" stop-color="#8f979e"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAc_3EekastinFIX_gr3)" d="M10,13l0.9,5.04	c-1.59-0.55-2.96-1.2-4.05-1.92c0.14-0.83,0.64-1.57,1.38-2.03L10,13z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAd_3EekastinFIX_gr4" x1="39.125" x2="39.125" y1="1.826" y2="44.263" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a1aab3"></stop><stop offset="1" stop-color="#8f979e"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAd_3EekastinFIX_gr4)" d="M41.15,16.12	c-1.09,0.72-2.46,1.37-4.05,1.92L38,13l1.77,1.09C40.51,14.55,41.01,15.29,41.15,16.12z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAe_3EekastinFIX_gr5" x1="24" x2="24" y1="36.13" y2="50.167" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6d6d6d"></stop><stop offset=".126" stop-color="#626262"></stop><stop offset=".886" stop-color="#464646"></stop><stop offset="1" stop-color="#454545"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAe_3EekastinFIX_gr5)" d="M24,31c-6.08,0-11,1.86-11,6c0,3,6,9,11,9	s11-6,11-9C35,32.86,30.08,31,24,31z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAf_3EekastinFIX_gr6" x1="24" x2="24" y1="1.826" y2="44.263" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a1aab3"></stop><stop offset="1" stop-color="#8f979e"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAf_3EekastinFIX_gr6)" d="M39.56,33.52	c-0.03,0.65-0.37,1.24-0.93,1.59c-2.09,1.29-6.61,3.32-10.62,4.31c-0.97,0.24-1.92,0.42-2.78,0.5C24.8,39.98,24.39,40,24,40	s-0.8-0.02-1.23-0.08c-0.86-0.08-1.81-0.26-2.78-0.5c-4.01-0.99-8.53-3.02-10.62-4.31c-0.39-0.25-0.68-0.61-0.82-1.03	c-0.06-0.18-0.1-0.37-0.11-0.56c-0.15-3.03-0.04-7.54,0.32-12.38c0.16-2.19,0.38-4.44,0.65-6.66c0-0.03,0.01-0.05,0.01-0.08	c0.77-6.39,6.13-11.21,12.52-11.39C22.06,3,22.19,3,22.32,3h3.36c0.13,0,0.26,0,0.38,0.01c6.39,0.18,11.75,5,12.52,11.39	c0,0.03,0.01,0.05,0.01,0.08c0.27,2.22,0.49,4.47,0.65,6.66C39.6,25.98,39.71,30.49,39.56,33.52z"></path><path fill="#889097" d="M19.99,39.42c-4.01-0.99-8.53-3.02-10.62-4.31c-0.39-0.25-0.68-0.61-0.82-1.03	C8.81,31.31,10.2,28.35,12,27C19,25.5,22.25,38,19.99,39.42z"></path><path fill="#889097" d="M28.01,39.42c4.01-0.99,8.53-3.02,10.62-4.31c0.39-0.25,0.68-0.61,0.82-1.03	C39.19,31.31,37.8,28.35,36,27C29,25.5,25.75,38,28.01,39.42z"></path><path fill="#889097" d="M26.06,3.01C25.94,3,25.81,3,25.68,3H24h-1.68c-0.13,0-0.26,0-0.38,0.01L21,19h3h3L26.06,3.01z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAg_3EekastinFIX_gr7" x1="14.659" x2="14.659" y1="7.043" y2="45.014" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#889097"></stop><stop offset="1" stop-color="#4c5963"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAg_3EekastinFIX_gr7)" d="M8.76,21.14C10,22,12,24,12,27	c3,0,7.99,6,7.99,12.42C21.25,34.75,21.5,21.14,8.76,21.14z"></path><path fill="#bfc8d1" d="M25,3v12c0,0.55-0.45,1-1,1s-1-0.45-1-1V3H25z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAh_3EekastinFIX_gr8" x1="33.341" x2="33.341" y1="7.043" y2="45.014" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#889097"></stop><stop offset="1" stop-color="#4c5963"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAh_3EekastinFIX_gr8)" d="M39.24,21.14C38,22,36,24,36,27	c-3,0-7.99,6-7.99,12.42C26.75,34.75,26.5,21.14,39.24,21.14z"></path><path fill="#bfc8d1" d="M38.59,14.48C34.06,17.06,26.91,18,24,18s-10.06-0.94-14.59-3.52c-0.27,2.22-0.49,4.47-0.65,6.66	c6.48,1.35,11.07,8.01,11.23,18.28c0.97,0.24,1.92,0.42,2.78,0.5c0.386-0.182,0.84-0.5,1.23-0.5s0.712,0.244,1.23,0.5	c0.86-0.08,1.81-0.26,2.78-0.5c0.16-10.27,4.75-16.93,11.23-18.28C39.08,18.95,38.86,16.7,38.59,14.48z"></path><linearGradient id="29i7EGsvAp5jqtpE8H-LAi_3EekastinFIX_gr9" x1="24" x2="24" y1="11.087" y2="35.802" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6d6d6d"></stop><stop offset=".126" stop-color="#626262"></stop><stop offset=".886" stop-color="#464646"></stop><stop offset="1" stop-color="#454545"></stop></linearGradient><path fill="url(#29i7EGsvAp5jqtpE8H-LAi_3EekastinFIX_gr9)" d="M10.5,17l0.57,2.01	c0.27,0.93,0.98,1.68,1.9,2L13,21.02l2,0.7l1,0.35l2.43,0.85c0.2,0.07,0.39,0.15,0.57,0.24c1.55,0.78,2.62,2.32,2.76,4.09l0.99,12.5	l0.02,0.17C23.2,39.98,23.61,40,24,40s0.8-0.02,1.23-0.08l0.02-0.17l0.99-12.5c0.16-1.98,1.47-3.67,3.33-4.33l5.46-1.91	c0.92-0.32,1.63-1.07,1.9-2L37.5,17C31,20,26,20,24,20c-0.99,0-2.72,0-5-0.37c-0.92-0.14-1.92-0.35-3-0.64	c-0.33-0.08-0.66-0.17-1-0.28c-0.64-0.19-1.31-0.41-2-0.67C12.2,17.74,11.36,17.4,10.5,17z"></path><path d="M28.01,39.42c-0.97,0.24-1.92,0.42-2.78,0.5C24.8,39.98,24.39,40,24,40s-0.8-0.02-1.23-0.08 c-0.86-0.08-1.81-0.26-2.78-0.5c-2.35-0.58-4.88-1.52-6.99-2.46V37c0,0.17,0.02,0.35,0.06,0.54c0.03,0.19,0.09,0.39,0.17,0.61 c2.04,0.87,4.36,1.7,6.52,2.24c1.09,0.27,2.07,0.45,2.93,0.53C23.06,40.97,23.51,41,24,41s0.94-0.03,1.37-0.09 c0.81-0.07,1.79-0.25,2.88-0.52c2.16-0.54,4.49-1.37,6.52-2.24c0.08-0.22,0.14-0.42,0.17-0.61C34.98,37.35,35,37.17,35,37v-0.04 C32.89,37.9,30.36,38.84,28.01,39.42z" opacity=".05"></path><path d="M28.01,39.42c-0.97,0.24-1.92,0.42-2.78,0.5C24.8,39.98,24.39,40,24,40s-0.8-0.02-1.23-0.08 c-0.86-0.08-1.81-0.26-2.78-0.5c-2.35-0.58-4.88-1.52-6.99-2.46V37c0,0.17,0.02,0.35,0.06,0.54c2.1,0.92,4.54,1.81,6.81,2.37 c1.06,0.26,2.02,0.43,2.85,0.51c0.39,0.05,0.81,0.08,1.28,0.08s0.89-0.03,1.3-0.08c0.81-0.08,1.77-0.25,2.83-0.51 c2.27-0.56,4.71-1.45,6.81-2.37C34.98,37.35,35,37.17,35,37v-0.04C32.89,37.9,30.36,38.84,28.01,39.42z" opacity=".07"></path><g><path d="M40.24,21.07c-0.16-2.18-0.38-4.42-0.65-6.65v-0.04l-0.02-0.09v-0.01c-0.01-0.11-0.03-0.23-0.05-0.34l-0.55-0.35 l-0.59-0.35c0.09,0.38,0.15,0.77,0.2,1.16c0,0.03,0.01,0.05,0.01,0.08c0.27,2.22,0.49,4.47,0.65,6.66 c0.07,0.9,0.13,1.78,0.18,2.65l0.48-0.25l0.03-0.01c0.17-0.09,0.33-0.19,0.46-0.32C40.34,22.51,40.29,21.79,40.24,21.07z M8.48,13.94c-0.02,0.11-0.04,0.23-0.05,0.34v0.01c-0.01,0.03-0.01,0.07-0.02,0.1c-0.27,2.24-0.49,4.49-0.65,6.68 c-0.05,0.72-0.1,1.44-0.15,2.14c0.13,0.13,0.29,0.23,0.46,0.32l0.03,0.01l0.48,0.25c0.05-0.87,0.11-1.75,0.18-2.65 c0.16-2.19,0.38-4.44,0.65-6.66c0-0.03,0.01-0.05,0.01-0.08c0.05-0.39,0.11-0.78,0.2-1.16l-0.59,0.35L8.48,13.94z" opacity=".05"></path><path d="M39.74,21.1c-0.16-2.18-0.38-4.42-0.65-6.65v-0.02l-0.01-0.06v-0.03c-0.03-0.25-0.07-0.5-0.11-0.75l-0.59-0.35 c0.09,0.38,0.15,0.77,0.2,1.16c0,0.03,0.01,0.05,0.01,0.08c0.27,2.22,0.49,4.47,0.65,6.66c0.07,0.9,0.13,1.78,0.18,2.65l0.48-0.25 C39.86,22.74,39.8,21.92,39.74,21.1z M8.92,14.34v0.02c0,0.03-0.01,0.05-0.01,0.08c-0.27,2.23-0.49,4.48-0.65,6.66 c-0.06,0.82-0.12,1.64-0.16,2.44l0.48,0.25c0.05-0.87,0.11-1.75,0.18-2.65c0.16-2.19,0.38-4.44,0.65-6.66 c0-0.03,0.01-0.05,0.01-0.08c0.05-0.39,0.11-0.78,0.2-1.16l-0.59,0.35C8.99,13.84,8.95,14.09,8.92,14.34z" opacity=".07"></path></g>
+                        </svg>
+                        </div>
+                        <h3 class="module-name">EMONET</h3>
+                        <p class="module-description">Emotion-aware rephrasing for human connection</p>
+                        <div class="module-force-level">
+                            <span class="force-label">FORCE LEVEL:</span>
+                            <div class="force-bar">
+                                <div class="force-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card" data-module="router">
+                        <div class="module-icon"><div class="module-icon">
+  <img src="/images/deathstar.png" alt="Death Star" class="icon-img">
+</div></div>
+                        <h3 class="module-name">ROOTROUTER</h3>
+                        <p class="module-description">Mycelium-inspired intelligent query routing</p>
+                        <div class="module-force-level">
+                            <span class="force-label">FORCE LEVEL:</span>
+                            <div class="force-bar">
+                                <div class="force-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="mission">
+            <div class="container">
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h2 class="section-title">JOIN THE MISSION</h2>
+                        <p class="mission-description">
+                            The galaxy needs heroes who can harness the power of data. Upload your documents 
+                            and let our AI fleet analyze them with the wisdom of the Jedi and the efficiency 
+                            of the Rebellion.
+                        </p>
+                        <div class="mission-features">
+                            <div class="feature">
+                                <span class="feature-icon">⚡</span>
+                                <span>Lightning-fast processing</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🛡️</span>
+                                <span>Secure data handling</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🎯</span>
+                                <span>Precise insights</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-area" style="position: relative;">
+    <div class="upload-zone">
+  <div class="upload-icon"> <canvas id="babyYodaCanvas"></canvas></div>
+  <p class="upload-text">Drop your documents here</p>
+  <p class="upload-subtext">PDF, DOC, TXT files supported</p>
+  <input type="file" id="file-upload" multiple accept=".pdf,.doc,.docx,.txt">
+  <button class="upload-btn">CHOOSE FILES</button>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <span class="logo-text">MYNN</span>
+                        <span class="logo-subtitle">STAR WARS EDITION</span>
+                    </div>
+                    <p class="footer-text">"May the Force be with your data"</p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+<canvas id="bb8-easteregg"></canvas>
+
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+  const toggleBtn = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+</html>

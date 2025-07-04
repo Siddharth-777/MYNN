@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYNN - Document Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #111;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 400;
+            min-height: 100vh;
+        }
+        body {
+            min-height: 100vh;
+            position: relative;
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.07;
+            background: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 0,100" fill="%23ccc"/><polygon points="100,0 100,100 0,100" fill="%23eee"/></svg>') center/cover no-repeat;
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.98rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 40px;
+            gap: 32px;
+            padding-top: 24px;
+            position: relative;
+            z-index: 10;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #111;
+            margin: 0 10px;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .navbar a:hover {
+            opacity: 1;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px 40px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .header {
+            background: none;
+            color: #111;
+            padding: 0 0 30px 0;
+            text-align: center;
+            border-radius: 0;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: none;
+        }
+        .header h1 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #111;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+        .header p {
+            font-size: 1.08rem;
+            color: #444;
+        }
+        .main-content {
+            padding: 0;
+            width: 100%;
+        }
+        .section {
+            margin-bottom: 32px;
+            padding: 36px 4vw;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 2px 12px #eee;
+            border: 1.5px solid #eee;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section h2 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #111;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            width: 100%;
+            text-align: left;
+        }
+        .upload-area {
+            border: 2px dashed #bbb;
+            border-radius: 15px;
+            padding: 40px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: #fafafa;
+            color: #222;
+            width: 100%;
+            max-width: 100%;
+        }
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #111;
+            background: #f5f5f5;
+        }
+        .upload-icon {
+            font-size: 3rem;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        .file-input {
+            display: none;
+        }
+        .btn {
+            background: #111;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #333;
+        }
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .question-form {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .question-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+            color: #111;
+            width: 100%;
+        }
+        .question-input:focus {
+            outline: none;
+            border-color: #111;
+            box-shadow: 0 0 0 2px #eee;
+        }
+        .question-input::placeholder {
+            color: #bbb;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+            width: 100%;
+            text-align: left;
+        }
+        .status.success {
+            background: #e8f5e9;
+            color: #111;
+            border: 1px solid #c8e6c9;
+        }
+        .status.error {
+            background: #ffebee;
+            color: #b71c1c;
+            border: 1px solid #ffcdd2;
+        }
+        .status.info {
+            background: #e3f2fd;
+            color: #111;
+            border: 1px solid #bbdefb;
+        }
+        .response-container {
+            display: none;
+            margin-top: 30px;
+            width: 100%;
+        }
+        .response-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #eee;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            border: 1.5px solid #eee;
+            color: #111;
+            width: 100%;
+        }
+        .response-card.fused {
+            background: #fafafa;
+            border: 2px solid #bbb;
+            box-shadow: 0 4px 16px #eee;
+        }
+        .response-card h3 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 0.04em;
+        }
+        .response-card p, .response-card ul, .response-card li, .response-card div {
+            margin-bottom: 0;
+            color: #111;
+        }
+        .response-card ul {
+            margin: 0 0 0 18px;
+            padding: 0;
+        }
+        .response-card li {
+            margin-bottom: 2px;
+        }
+        .section#responseContainer {
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            border: none;
+        }
+        .confidence-bar {
+            background: #eee;
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 5px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .confidence-fill {
+            background: #111;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #eee;
+            border-top: 3px solid #111;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 900px) {
+            .container { padding: 0 4px 30px 4px; }
+            .section { padding: 24px 2vw; }
+        }
+        @media (max-width: 768px) {
+            .question-form {
+                flex-direction: column;
+            }
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            .main-content {
+                padding: 0;
+            }
+            .navbar {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/models">About</a>
+        <a href="/about">Blog</a>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Document Analyzer</h1>
+            <p>Upload research papers and ask questions with AI-powered analysis</p>
+        </div>
+        <div class="main-content">
+            <!-- Upload Section -->
+            <div class="section">
+                <h2>Upload Research Paper</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <p>Drag and drop your PDF here or click to browse</p>
+                        <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                    </div>
+                </div>
+                <div id="uploadStatus"></div>
+            </div>
+            <!-- Question Section -->
+            <div class="section">
+                <h2>Ask Questions</h2>
+                <div class="question-form">
+                    <input type="text" id="questionInput" class="question-input" placeholder="Ask a question about the uploaded research paper..." disabled>
+                    <button class="btn" id="askBtn" disabled>Ask MYNN</button>
+                </div>
+                <div id="questionStatus"></div>
+            </div>
+            <!-- Response Section -->
+            <div class="section" id="responseContainer" style="display: none;">
+                <h2>MYNN's Response</h2>
+                <!-- Route Decision -->
+                <div class="response-card">
+                    <h3>Route Decision</h3>
+                    <p id="routeInfo"></p>
+                </div>
+                <!-- LogicNet Response -->
+                <div class="response-card">
+                    <h3>LogicNet (Logical Analysis)</h3>
+                    <p id="logicnetResponse"></p>
+                </div>
+                <!-- MemoryNet Response -->
+                <div class="response-card">
+                    <h3>MemoryNet (Memory Retrieval)</h3>
+                    <p id="memorynetResponse"></p>
+                </div>
+                <!-- CreativeNet Response -->
+                <div class="response-card">
+                    <h3>CreativeNet (Creative Associations)</h3>
+                    <p id="creativenetResponse"></p>
+                </div>
+                <!-- EmoNet Response -->
+                <div class="response-card">
+                    <h3>EmoNet (Emotion Detection)</h3>
+                    <p id="emonetResponse"></p>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceBar"></div>
+                    </div>
+                </div>
+                <!-- Fused Response -->
+                <div class="response-card fused">
+                    <h3>Fused Response</h3>
+                    <div id="fusedResponse"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+        let uploadedFile = null;
+
+        // Upload area functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const questionInput = document.getElementById('questionInput');
+        const askBtn = document.getElementById('askBtn');
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (file.type !== 'application/pdf') {
+                showStatus(uploadStatus, 'Please select a PDF file.', 'error');
+                return;
+            }
+
+            uploadedFile = file;
+            uploadFile(file);
+        }
+
+        async function uploadFile(file) {
+      const formData = new FormData();
+            formData.append('file', file);
+
+            showStatus(uploadStatus, '<div class="loading"></div> Uploading PDF...', 'info');
+
+      try {
+                const response = await fetch('http://127.0.0.1:8080/upload', {
+                    method: 'POST',
+                    body: formData
+        });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus(uploadStatus, `✅ PDF uploaded successfully! (${file.name})`, 'success');
+                    questionInput.disabled = false;
+                    askBtn.disabled = false;
+                    questionInput.focus();
+                } else {
+                    showStatus(uploadStatus, `Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(uploadStatus, `Network error: ${error.message}`, 'error');
+            }
+        }
+
+        // Question asking functionality
+        askBtn.addEventListener('click', askQuestion);
+        questionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                askQuestion();
+            }
+        });
+
+        async function askQuestion() {
+            const question = questionInput.value.trim();
+            if (!question) {
+                showStatus(document.getElementById('questionStatus'), 'Please enter a question.', 'error');
+                return;
+            }
+
+            if (!uploadedFile) {
+                showStatus(document.getElementById('questionStatus'), 'Please upload a PDF first.', 'error');
+                return;
+            }
+
+            askBtn.disabled = true;
+            askBtn.innerHTML = '<div class="loading"></div> Processing...';
+            showStatus(document.getElementById('questionStatus'), '<div class="loading"></div> MYNN is thinking...', 'info');
+
+            try {
+                const response = await fetch('http://127.0.0.1:8080/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    displayResponse(data);
+                    showStatus(document.getElementById('questionStatus'), 'Response generated successfully!', 'success');
+        } else {
+                    showStatus(document.getElementById('questionStatus'), `Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                showStatus(document.getElementById('questionStatus'), `Network error: ${error.message}`, 'error');
+            } finally {
+                askBtn.disabled = false;
+                askBtn.innerHTML = 'Ask MYNN';
+            }
+        }
+
+        function displayResponse(data) {
+            const responseContainer = document.getElementById('responseContainer');
+            responseContainer.style.display = 'block';
+
+            // Update each model's response
+            document.getElementById('routeInfo').textContent = `Routed to: ${data.route}`;
+            document.getElementById('logicnetResponse').textContent = data.logicnet;
+            
+            // Handle memory retrieval display
+            const memorynetElement = document.getElementById('memorynetResponse');
+            memorynetElement.parentElement.classList.remove('minimized');
+            memorynetElement.textContent = data.memorynet;
+            
+            document.getElementById('creativenetResponse').textContent = data.creativenet;
+            document.getElementById('emonetResponse').textContent = `Detected emotion: ${data.emonet.emotion}`;
+            
+            // Format the fused response properly
+            const fusedResponseElement = document.getElementById('fusedResponse');
+            fusedResponseElement.innerHTML = formatMarkdown(data.fused_response);
+
+            // Update confidence bar
+            const confidenceBar = document.getElementById('confidenceBar');
+            const confidence = Math.round(data.emonet.confidence * 100);
+            confidenceBar.style.width = `${confidence}%`;
+            confidenceBar.title = `${confidence}% confidence`;
+
+            // Scroll to response
+            responseContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function formatMarkdown(text) {
+            // Convert markdown to HTML
+            return text
+                // Convert headers
+                .replace(/### (.*?)\n/g, '<h3>$1</h3>')
+                .replace(/#### (.*?)\n/g, '<h4>$1</h4>')
+                // Convert bold text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                // Convert bullet points
+                .replace(/• (.*?)(?=\n|$)/g, '<li>$1</li>')
+                // Convert line breaks
+                .replace(/\n/g, '<br>')
+                // Wrap lists
+                .replace(/(<li>.*?<\/li>)/g, '<ul>$1</ul>');
+      }
+
+        function showStatus(element, message, type) {
+            element.innerHTML = message;
+            element.className = `status ${type}`;
+        }
+  </script>
+</body>
+</html>

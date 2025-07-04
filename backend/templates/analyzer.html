@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MYNN - Document Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #fff3e0;
+            color: #cc6d00;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            padding: 20px 0;
+            background: #ff8800;
+            border-bottom: 2px solid #cc6d00;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff3e0;
+            margin: 0 30px;
+            font-weight: 700;
+            opacity: 0.95;
+            transition: opacity 0.2s, background 0.2s, color 0.2s;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background: #ff8800;
+        }
+        .navbar a:hover {
+            opacity: 1;
+            background: #cc6d00;
+            color: #fff3e0;
+        }
+        .navbar a.active {
+            background: #fff3e0;
+            color: #ff8800;
+            opacity: 1;
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff3e0;
+            border-radius: 18px;
+            border: 2px solid #ff8800;
+            box-shadow: 0 4px 24px 0 #ff880033;
+        }
+        .section {
+            margin-bottom: 60px;
+            background: #ff8800;
+            border-radius: 14px;
+            padding: 32px 24px;
+            box-shadow: 0 2px 12px 0 #cc6d0033;
+        }
+        .section h1, .section h2 {
+            color: #fff3e0;
+            text-shadow: 0 2px 8px #cc6d0033;
+        }
+        .section h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 0.04em;
+        }
+        .section p, .features-list, .features-list li {
+            color: #fff3e0;
+        }
+        .upload-area {
+            width: 100%;
+            background: #fff3e0;
+            border: 2px dashed #ff8800;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: border-color 0.2s;
+            color: #cc6d00;
+        }
+        .upload-area:hover {
+            border-color: #cc6d00;
+        }
+        .upload-area input[type="file"] {
+            display: none;
+        }
+        .upload-btn {
+            background: #ff8800;
+            color: #fff3e0;
+            border: 2px solid #cc6d00;
+            border-radius: 8px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            margin-bottom: 15px;
+        }
+        .upload-btn:hover {
+            background: #cc6d00;
+            color: #fff3e0;
+        }
+        .upload-text {
+            font-size: 1rem;
+            color: #ff8800;
+        }
+        .question-form {
+            width: 100%;
+            margin: 30px 0;
+        }
+        .question-input {
+            width: 100%;
+            padding: 20px;
+            border: 2px solid #ff8800;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            resize: vertical;
+            min-height: 120px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background: #fff3e0;
+            color: #cc6d00;
+        }
+        .question-input:focus {
+            outline: none;
+            border-color: #cc6d00;
+            background: #fff3e0;
+            color: #ff8800;
+        }
+        .submit-btn {
+            background: #ff8800;
+            color: #fff3e0;
+            border: 2px solid #cc6d00;
+            border-radius: 8px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .submit-btn:hover {
+            background: #cc6d00;
+            color: #fff3e0;
+        }
+        .submit-btn:disabled {
+            background: #ffe0b2;
+            color: #cc6d00;
+            cursor: not-allowed;
+        }
+        .result-area {
+            width: 100%;
+            background: #ff8800;
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid #cc6d00;
+            margin-top: 30px;
+            color: #fff3e0;
+        }
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff3e0;
+        }
+        .result-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fff3e0;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #fff3e0;
+        }
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #fff3e0;
+            font-size: 1rem;
+            background: #ff8800;
+            border-top: 2px solid #cc6d00;
+        }
+        @media (max-width: 600px) {
+            .navbar a {
+                margin: 0 15px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .main-content {
+                padding: 20px 15px;
+            }
+            .section h1 {
+                font-size: 2rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/models">About</a>
+        <a href="/about">Blog</a>
+        <a href="/creator">Creator</a>
+    </div>
+    
+    <div class="main-content">
+        <div class="section">
+            <h1 style="color: #ff6b35;">Document Analyzer</h1>
+            <p>Upload your research paper and ask MYNN anything about it. Our AI models will analyze the content and provide comprehensive answers to your questions.</p>
+            
+            <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+                <div class="upload-area">
+                    <input type="file" name="file" id="fileInput" accept=".pdf" required>
+                    <button type="button" class="upload-btn" onclick="document.getElementById('fileInput').click()">Choose PDF File</button>
+                    <div class="upload-text">Drag and drop your PDF here, or click to browse</div>
+                </div>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>How to Use MYNN</h2>
+            <p><strong>1. Upload Your Paper:</strong> Select a research paper in PDF format. MYNN will parse and understand its content.</p>
+            <p><strong>2. Ask Questions:</strong> Type any question about the paper's content, methodology, or implications.</p>
+            <p><strong>3. Get Insights:</strong> MYNN's models analyze your question and provide comprehensive answers.</p>
+        </div>
+
+        <div class="section">
+            <h2>Example Questions</h2>
+            <p>You can ask MYNN questions like:</p>
+            <ul class="features-list">
+                <li>"What is the main hypothesis of this paper?"</li>
+                <li>"How does the methodology work?"</li>
+                <li>"What are the key findings?"</li>
+                <li>"Can you explain this concept in simple terms?"</li>
+                <li>"What are the limitations of this study?"</li>
+                <li>"How does this research compare to previous work?"</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Ask MYNN</h2>
+            <form id="questionForm" class="question-form">
+                <textarea class="question-input" id="question" name="question" placeholder="Ask any question about your uploaded research paper..." required></textarea>
+                <button type="submit" class="submit-btn" id="submitBtn">Ask Question</button>
+            </form>
+            <div id="result" class="result-area" style="display: none;">
+                <div class="result-title">MYNN's Answer</div>
+                <div class="result-content" id="resultContent"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Tips for Better Results</h2>
+            <ul class="features-list">
+                <li><strong>Be Specific:</strong> Ask detailed questions rather than vague ones for more precise answers</li>
+                <li><strong>Reference Content:</strong> Mention specific sections, figures, or concepts from the paper</li>
+                <li><strong>Ask for Explanations:</strong> Request step-by-step explanations of complex concepts or methods</li>
+                <li><strong>Explore Connections:</strong> Ask about relationships between different parts of the research</li>
+                <li><strong>Use Technical Terms:</strong> MYNN understands academic language and can explain it clearly</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        May the Force be with you.<br>
+        <span style="font-size:0.9em;">This site is not affiliated with or endorsed by Lucasfilm.</span>
+    </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                document.getElementById('uploadForm').submit();
+            }
+        });
+        
+        document.getElementById('questionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const question = document.getElementById('question').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const result = document.getElementById('result');
+            const resultContent = document.getElementById('resultContent');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Analyzing...';
+            result.style.display = 'none';
+            
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({question: question})
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultContent.innerHTML = data.answer.replace(/\n/g, '<br>');
+                result.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Ask Question';
+            })
+            .catch(error => {
+                resultContent.innerHTML = 'Error: Could not get answer. Please try again.';
+                result.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Ask Question';
+            });
+        });
+    </script>
+</body>
+</html> 

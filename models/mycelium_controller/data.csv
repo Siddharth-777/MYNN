@@ -1,0 +1,21 @@
+query,label
+What is the capital of France?,memorynet
+Generate a poem about the stars.,creativenet
+How do I feel today?,emonet
+Analyze this PDF document.,logicnet
+Suggest a metaphor for digital life.,creativenet
+Summarize this article.,logicnet
+Tell me how sad I sound.,emonet
+What does FAISS do?,logicnet
+Relate AI to mushrooms.,creativenet
+What emotions are in this sentence?,emonet
+Search this document semantically.,memorynet
+Give a surprising association.,creativenet
+Detect tone in my message.,emonet
+Retrieve relevant content.,memorynet
+Perform multi-hop reasoning.,logicnet
+Build analogy from biology.,creativenet
+Understand my emotional tone.,emonet
+Explain Transformer attention.,logicnet
+Where is this paragraph from?,memorynet
+Suggest unexpected connections.,creativenet

@@ -1,0 +1,32 @@
+body {
+  font-family: "Courier New", monospace;
+  background-color: #fff;
+  color: #ff6b35;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+button, input[type="file"] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+#status {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.chunk {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-left: 4px solid orangered;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+}
